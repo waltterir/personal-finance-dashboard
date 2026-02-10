@@ -4,7 +4,7 @@ import { categories } from "../../data/seed/categories";
 export function TransactionPage() {
   return (
     <>
-      <div className="ml-160 mt-50">
+      <div className="ml-64 mt-12">
         <ul>
           {transactions.map((transaction, index) => (
             <li className="flex gap-4" key={index}>
