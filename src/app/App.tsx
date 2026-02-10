@@ -1,7 +1,7 @@
 import { Header } from "../Layout/Header";
-import { AppRoutes } from "./routes";
+import { AppRoutes } from "./Routes";
 
-function App() {
+export function App() {
   return (
     <>
       <Header />
@@ -9,5 +9,3 @@ function App() {
     </>
   );
 }
-
-export default App;
