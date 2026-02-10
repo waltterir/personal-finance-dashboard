@@ -7,8 +7,14 @@ export function selectMonthlyTransactions(
   return transactions.filter((t) => t.date.startsWith(selectedMonth));
 }
 
-export function selectMonthlyTotalIncome() {}
+export function selectMonthlyTotalIncome(monthlyTransactions: Transaction[]) {
+  return monthlyTransactions
+    .filter((t) => t.type === "income")
+    .reduce((sum, t) => sum + t.amount, 0);
+}
 
-export function selectMonthlyTotalExpense() {}
-
-export function selectMonthlyNet() {}
+export function selectMonthlyTotalExpense(monthlyExpense: Transaction[]) {
+  return monthlyExpense
+    .filter((t) => t.type === "expense")
+    .reduce((sum, t) => sum + t.amount, 0);
+}

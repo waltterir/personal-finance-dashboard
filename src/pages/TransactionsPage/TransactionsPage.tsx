@@ -4,10 +4,10 @@ import { categories } from "../../data/seed/categories";
 export function TransactionPage() {
   return (
     <>
-      <div className="ml-64 mt-12">
+      <div>
         <ul>
           {transactions.map((transaction, index) => (
-            <li className="flex gap-4" key={index}>
+            <li key={index}>
               <span>{transaction.date}</span>
               <span>{transaction.description}</span>
               <span>
