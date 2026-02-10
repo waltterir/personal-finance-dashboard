@@ -36,10 +36,10 @@ export const transactions = [
   },
   {
     date: "2026-02-11",
-    description: "Snus",
+    description: "Vinted",
     type: "expense",
     amount: 120,
-    categoryId: "other",
+    categoryId: "shopping",
   },
   {
     date: "2026-02-12",
