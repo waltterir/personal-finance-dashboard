@@ -1,3 +1,11 @@
+import { transactions } from "../../data/seed/transactions";
+
 export function TransactionPage() {
-  return <div>TransactionPage</div>;
+  return (
+    <>
+      <div>
+        <ul>{}</ul>
+      </div>
+    </>
+  );
 }
