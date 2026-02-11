@@ -5,6 +5,7 @@ export function TransactionPage() {
   return (
     <>
       <div>
+        <h1>Transactions</h1>
         <ul>
           {transactions.map((transaction, index) => (
             <li key={index}>
