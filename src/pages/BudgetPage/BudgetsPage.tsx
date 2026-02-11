@@ -12,34 +12,30 @@ export function BudgetsPage() {
   const monthlyBudgets = budgets.filter((b) => b.month === month);
   const rows = buildBudgetRows(monthlyBudgets, categories, spentTotals);
 
-  console.log(monthlyBudgets.length);
-  console.log(monthlyBudgets.map((b) => b.categoryId));
-
-  console.log(rows.length);
-  console.log(rows.map((r) => r.category));
-
   return (
     <>
-      <table border={1} cellPadding={8}>
-        <thead>
-          <tr>
-            <th>Category|</th>
-            <th>Limit|</th>
-            <th>Spent|</th>
-            <th>%</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr key={row.id}>
-              <td>{row.category}</td>
-              <td>{row.limit}€</td>
-              <td>{row.spent}€</td>
-              <td>{row.percent}%</td>
+      <div className="max-w-2xl mx-auto">
+        <table className="w-full border-collapse">
+          <thead>
+            <tr className="border-b">
+              <th className="text-left py-2 px-3">Category</th>
+              <th className="text-left py-2 px-3">Limit</th>
+              <th className="text-left py-2 px-3">Spent</th>
+              <th className="text-left py-2 px-3">%</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr className="border-b odd:bg-white/15" key={row.id}>
+                <td className="py-2 px-3">{row.category}</td>
+                <td className="py-2 px-3">{row.limit} €</td>
+                <td className="py-2 px-3">{row.spent} €</td>
+                <td className="py-2 px-3">{row.percent} %</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
