@@ -5,3 +5,8 @@ export type Transaction = {
   amount: number;
   categoryId: string;
 };
+
+export type Category = {
+  id: string;
+  name: string;
+};
