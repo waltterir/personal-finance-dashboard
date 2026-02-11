@@ -28,14 +28,17 @@ export function buildBudgetRows(
   for (let b of budgets) {
     const category = categories.find((c) => c.id === b.categoryId);
     if (!category) continue; // jos kategoriaa ei löydy, ohitetaan
-    const categoryName = category.name;
-    const spent = spentTotals[b.categoryId] || 0;
+    const categoryName = category.name; // haetaan kategorian nimi
+    const spent = spentTotals[b.categoryId] || 0; // haetaan kulut, tai 0 jos ei vielä ole
     const percent = b.limit > 0 ? (spent / b.limit) * 100 : 0; // vältetään jako nollalla
+    const id = `${b.month}-${b.categoryId}`; // luodaan yksilöllinen id
     rows.push({
+      // rakennetaan rivi
+      id: id,
       category: categoryName,
       limit: b.limit,
       spent: spent,
-      percent: percent,
+      percent: Math.round(percent),
     });
   }
   return rows;
