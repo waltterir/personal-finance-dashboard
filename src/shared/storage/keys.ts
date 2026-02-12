@@ -1,4 +1,4 @@
 export const STORAGE_KEYS = {
-  transactions: "transactions.v1",
-  budgets: "budgets.v1",
+  transactions: "pfd.transactions.v1",
+  budgets: "pfd.budgets.v1",
 };

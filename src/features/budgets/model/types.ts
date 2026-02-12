@@ -5,7 +5,7 @@ export type Budgets = {
 };
 
 export type BudgetsRow = {
-  id: number;
+  id: string;
   category: string;
   limit: number;
   spent: number;
