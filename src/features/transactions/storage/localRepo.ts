@@ -1,6 +1,20 @@
 import { STORAGE_KEYS } from "../../../shared/storage/keys";
-import { safeJsonParse } from "../../../shared/utils/jsonUtils";
-import { safeJsonStringify } from "../../../shared/storage/safeJson";
 import type { TransactionsRepo } from "./transactionsRepo";
+import type { Transaction } from "../model/types";
+import {
+  safeJsonParse,
+  safeJsonStringify,
+} from "../../../shared/storage/safeJson";
 
-export function createLocalTransactionsRepo(): TransactionsRepo {}
+export function createLocalTransactionsRepo(): TransactionsRepo {
+  const key = STORAGE_KEYS.transactions;
+  return {
+    load(): Transaction[] {
+      const stored = localStorage.getItem(key);
+      return safeJsonParse(stored, []);
+    },
+    save(items: Transaction[]) {
+      localStorage.setItem(key, safeJsonStringify(items));
+    },
+  };
+}
