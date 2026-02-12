@@ -24,6 +24,7 @@ export function buildBudgetRows(
   categories: Category[],
   spentTotals: Record<string, number>,
 ): BudgetsRow[] {
+  // palauttaa taulukon budjettirivejä
   const rows: BudgetsRow[] = [];
   for (let b of budgets) {
     const category = categories.find((c) => c.id === b.categoryId);
