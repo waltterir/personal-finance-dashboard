@@ -1,4 +1,4 @@
-export type Budgets = {
+export type Budget = {
   month: string;
   categoryId: string;
   limit: number;
