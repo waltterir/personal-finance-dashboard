@@ -1,7 +1,9 @@
-import { seedTransactions } from "../../data/seed/transactions";
-import { categories } from "../../data/seed/categories";
+import { transactions as seedTransactions } from "../../data/seed/transactions";
 import { createLocalTransactionsRepo } from "../../features/transactions/storage/localRepo";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { TransactionForm } from "../../features/transactions/components/TransactionForm";
+import { TransactionList } from "../../features/transactions/components/TransactionList";
+import { categories } from "../../data/seed/categories";
 
 export function TransactionPage() {
   const repo = createLocalTransactionsRepo();
@@ -9,28 +11,26 @@ export function TransactionPage() {
     const stored = repo.load();
     return stored.length > 0 ? stored : seedTransactions;
   });
- 
+
+  const handleDeleteTransaction = (id: string) => {
+    setTransactions((prev) => prev.filter((t) => t.id !== id));
+  };
+
+  useEffect(() => {
+    repo.save(transactions);
+  }, [transactions]);
 
   return (
     <>
       <div>
-        <h1>Transactions</h1>
-        <ul>
-          {transactions.map((transaction, index) => (
-            <li key={index}>
-              <span>{transaction.date}</span>
-              <span>{transaction.description}</span>
-              <span>
-                {
-                  categories.find((cat) => cat.id === transaction.categoryId)
-                    ?.name
-                }
-              </span>
-              <span>{transaction.type}</span>
-              <span>{transaction.amount}€</span>
-            </li>
-          ))}
-        </ul>
+        <TransactionForm />
+      </div>
+      <div>
+        <TransactionList
+          transactions={transactions}
+          categories={categories}
+          onDelete={handleDeleteTransaction}
+        />
       </div>
     </>
   );

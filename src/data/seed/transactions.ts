@@ -1,5 +1,6 @@
 export const transactions = [
   {
+    id: "1",
     date: "2026-02-01",
     description: "Rent payment",
     type: "expense",
@@ -7,6 +8,7 @@ export const transactions = [
     categoryId: "rent",
   },
   {
+    id: "2",
     date: "2026-02-01",
     description: "Pay day",
     type: "income",
@@ -14,6 +16,7 @@ export const transactions = [
     categoryId: "salary",
   },
   {
+    id: "3",
     date: "2026-02-05",
     description: "Grocery store",
     type: "expense",
@@ -21,6 +24,7 @@ export const transactions = [
     categoryId: "food",
   },
   {
+    id: "4",
     date: "2026-02-05",
     description: "Gas",
     type: "expense",
@@ -28,6 +32,7 @@ export const transactions = [
     categoryId: "transport",
   },
   {
+    id: "5",
     date: "2026-02-09",
     description: "Movie ticket",
     type: "expense",
@@ -35,6 +40,7 @@ export const transactions = [
     categoryId: "entertainment",
   },
   {
+    id: "6",
     date: "2026-02-11",
     description: "Vinted",
     type: "expense",
@@ -42,6 +48,7 @@ export const transactions = [
     categoryId: "shopping",
   },
   {
+    id: "7",
     date: "2026-02-12",
     description: "HBO subscription",
     type: "expense",
@@ -49,6 +56,7 @@ export const transactions = [
     categoryId: "other",
   },
   {
+    id: "8",
     date: "2026-02-15",
     description: "Pay day",
     type: "income",
@@ -56,6 +64,7 @@ export const transactions = [
     categoryId: "salary",
   },
   {
+    id: "9",
     date: "2026-02-18",
     description: "Grocery store",
     type: "expense",
@@ -63,6 +72,7 @@ export const transactions = [
     categoryId: "food",
   },
   {
+    id: "10",
     date: "2026-02-24",
     description: "Pharmacy",
     type: "expense",
@@ -70,6 +80,7 @@ export const transactions = [
     categoryId: "health",
   },
   {
+    id: "11",
     date: "2026-02-28",
     description: "Vinted",
     type: "expense",

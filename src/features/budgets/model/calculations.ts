@@ -1,6 +1,6 @@
 import type { Transaction } from "../../transactions/model/types";
 import type { BudgetsRow } from "./types";
-import type { Budgets } from "./types";
+import type { Budget } from "./types";
 import type { Category } from "../../transactions/model/types";
 
 export function spentByCategory(
@@ -20,7 +20,7 @@ export function spentByCategory(
 }
 
 export function buildBudgetRows(
-  budgets: Budgets[],
+  budgets: Budget[],
   categories: Category[],
   spentTotals: Record<string, number>,
 ): BudgetsRow[] {
