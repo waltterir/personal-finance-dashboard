@@ -1,14 +1,14 @@
 import { budgets } from "../../data/seed/budgets";
 import { categories } from "../../data/seed/categories";
-import { transactions } from "../../data/seed/transactions";
 import {
   buildBudgetRows,
   spentByCategory,
 } from "../../features/budgets/model/calculations";
+import type { Transaction } from "../../features/transactions/model/types";
 
-export function BudgetsPage() {
+export function BudgetsPage(props: { transactions: Transaction[] }) {
   const month = "2026-02";
-  const spentTotals = spentByCategory(transactions, month);
+  const spentTotals = spentByCategory(props.transactions, month);
   const monthlyBudgets = budgets.filter((b) => b.month === month);
   const rows = buildBudgetRows(monthlyBudgets, categories, spentTotals);
 

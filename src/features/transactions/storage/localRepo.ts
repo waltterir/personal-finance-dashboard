@@ -9,8 +9,9 @@ import {
 export function createLocalTransactionsRepo(): TransactionsRepo {
   const key = STORAGE_KEYS.transactions;
   return {
-    load(): Transaction[] {
+    load(): null | Transaction[] {
       const stored = localStorage.getItem(key);
+      if (!stored) return null;
       return safeJsonParse(stored, []);
     },
     save(items: Transaction[]) {

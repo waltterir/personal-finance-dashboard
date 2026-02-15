@@ -1,13 +1,13 @@
-import { transactions } from "../../data/seed/transactions";
 import {
   selectMonthlyTransactions,
   selectMonthlyTotalIncome,
   selectMonthlyTotalExpense,
 } from "../../features/dashboard/model/selectors";
+import type { Transaction } from "../../features/transactions/model/types";
 
-export function DashboardPage() {
+export function DashboardPage(props: { transactions: Transaction[] }) {
   const selectedMonth = "2026-02";
-  const monthly = selectMonthlyTransactions(transactions, selectedMonth);
+  const monthly = selectMonthlyTransactions(props.transactions, selectedMonth);
   const monthlyIncome = selectMonthlyTotalIncome(monthly);
   const monthlyExpense = selectMonthlyTotalExpense(monthly);
   const net = monthlyIncome - monthlyExpense;

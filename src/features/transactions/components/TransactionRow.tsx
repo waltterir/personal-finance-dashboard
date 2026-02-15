@@ -16,7 +16,10 @@ export function TransactionRow(props: TransactionRowProps) {
         <div>{props.category?.name}</div>
         <div>{props.transaction.type}</div>
         <div>{props.transaction.amount}€</div>
-        <button onClick={() => props.onDelete(props.transaction.id)}>
+        <button
+          className="border"
+          onClick={() => props.onDelete(props.transaction.id)}
+        >
           Delete
         </button>
       </li>
