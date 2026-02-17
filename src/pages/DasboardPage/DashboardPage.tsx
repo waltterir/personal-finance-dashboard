@@ -6,7 +6,7 @@ import {
 import type { Transaction } from "../../features/transactions/model/types";
 
 export function DashboardPage(props: { transactions: Transaction[] }) {
-  const selectedMonth = "2026-02";
+  const selectedMonth = new Date().toISOString().slice(0, 7);
   const monthly = selectMonthlyTransactions(props.transactions, selectedMonth);
   const monthlyIncome = selectMonthlyTotalIncome(monthly);
   const monthlyExpense = selectMonthlyTotalExpense(monthly);

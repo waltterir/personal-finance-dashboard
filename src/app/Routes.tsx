@@ -8,7 +8,7 @@ import type { Transaction } from "../features/transactions/model/types";
 export function AppRoutes(props: {
   transactions: Transaction[];
   onDeleteTransaction: (id: string) => void;
-  onAddTransaction?: (transaction: Transaction) => void;
+  onAddTransaction: (transaction: Transaction) => void;
 }) {
   return (
     <>
@@ -24,6 +24,7 @@ export function AppRoutes(props: {
               <TransactionPage
                 transactions={props.transactions}
                 onDeleteTransaction={props.onDeleteTransaction}
+                onAddTransaction={props.onAddTransaction}
               />
             }
           />

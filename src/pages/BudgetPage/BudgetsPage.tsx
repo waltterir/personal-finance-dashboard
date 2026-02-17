@@ -7,7 +7,7 @@ import {
 import type { Transaction } from "../../features/transactions/model/types";
 
 export function BudgetsPage(props: { transactions: Transaction[] }) {
-  const month = "2026-02";
+  const month = new Date().toISOString().slice(0, 7);
   const spentTotals = spentByCategory(props.transactions, month);
   const monthlyBudgets = budgets.filter((b) => b.month === month);
   const rows = buildBudgetRows(monthlyBudgets, categories, spentTotals);

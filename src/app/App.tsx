@@ -2,6 +2,7 @@ import { Header } from "../Layout/Header";
 import { AppRoutes } from "./Routes";
 import { transactions as seedTransactions } from "../data/seed/transactions";
 import { createLocalTransactionsRepo } from "../features/transactions/storage/localRepo";
+import type { Transaction } from "../features/transactions/model/types";
 import { useState, useEffect } from "react";
 
 export function App() {
@@ -19,6 +20,10 @@ export function App() {
     setTransactions((prev) => prev.filter((t) => t.id !== id));
   };
 
+  const handleAddTransaction = (transaction: Transaction) => {
+    setTransactions((prev) => [...prev, transaction]);
+  };
+
   useEffect(() => {
     repo.save(transactions);
   }, [transactions]);
@@ -29,6 +34,7 @@ export function App() {
       <AppRoutes
         transactions={transactions}
         onDeleteTransaction={handleDeleteTransaction}
+        onAddTransaction={handleAddTransaction}
       />
     </>
   );
