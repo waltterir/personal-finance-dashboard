@@ -1,9 +1,9 @@
 import { Header } from "../Layout/Header";
 import { AppRoutes } from "./Routes";
-import { transactions as seedTransactions } from "../data/seed/transactions";
+import { transactions as seedTransactions } from "../data/seed";
 import { createLocalTransactionsRepo } from "../features/transactions/storage/localRepo";
 import type { Transaction } from "../features/transactions/model/types";
-import { budgets as seedBudgets } from "../data/seed/budgets";
+import { budgets as seedBudgets } from "../data/seed";
 import { useState, useEffect } from "react";
 
 export function App() {
@@ -26,6 +26,10 @@ export function App() {
     setTransactions((prev) => [...prev, transaction]);
   };
 
+  const handleImportTransactions = (newTransaction: Transaction[]) => {
+    setTransactions((prev) => [...prev, ...newTransaction]);
+  };
+
   useEffect(() => {
     repo.save(transactions);
   }, [transactions]);
@@ -38,6 +42,7 @@ export function App() {
         budgets={budgets}
         onDeleteTransaction={handleDeleteTransaction}
         onAddTransaction={handleAddTransaction}
+        onImportTransaction={handleImportTransactions}
       />
     </>
   );

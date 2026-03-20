@@ -6,4 +6,5 @@ export type AppRoutesProps = {
   budgets: Budget[];
   onDeleteTransaction: (id: string) => void;
   onAddTransaction: (transaction: Transaction) => void;
+  onImportTransaction: (newTransaction: Transaction[]) => void;
 };
