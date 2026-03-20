@@ -1,4 +1,4 @@
-import type { Transaction } from "../../transactions/model/types";
+import type { Transaction } from "../../transactions/model";
 export type Budget = {
   month: string;
   categoryId: string;

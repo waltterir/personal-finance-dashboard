@@ -1,4 +1,4 @@
-import type { Transaction } from "../../features/transactions/model/types";
+import type { Transaction } from "../../features/transactions/model";
 
 export const transactions: Transaction[] = [
   {

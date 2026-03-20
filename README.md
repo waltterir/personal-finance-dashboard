@@ -1,24 +1,38 @@
 # Personal Finance Dashboard (WIP)
 
-A personal finance dashboard project built with **React + TypeScript**.
+A personal finance dashboard built with **React and TypeScript**.
 
-The goal of this project is to create a clean and scalable dashboard UI for tracking personal finances, including transactions, budgets and monthly summaries.
-
-> Current status: Early MVP with routing, pages and mock data in place.
+The goal of this project is to build a clean and scalable dashboard for tracking personal finances, including transactions, budgets and monthly summaries.
 
 ---
 
-## ✨ Current Features
+## Status
 
-- **Dashboard page** with an initial overview layout
-- **Transactions page** displaying transaction data (currently hardcoded/mock)
-- **Budgets page** with basic budget UI structure
-- Working **routing and navigation** between pages
-- TypeScript models and small utility functions for totals and summaries
+Work in progress – building the MVP and core features
 
 ---
 
-## 🛠️ Tech Stack
+## Current Features
+
+- Dashboard with an overview of financial data
+- Transactions page with transaction list and state updates
+- Budgets page reflecting spending data from transactions
+- Shared state updates between views (transactions → dashboard & budgets)
+- Basic TypeScript models and utility functions for totals and summaries
+- Client-side routing and navigation
+
+---
+
+## Next Steps
+
+- - Add transaction import functionality (upload and parse JSON/CSV files)
+- Improve state handling and validation
+- Build a backend with FastAPI + SQLite
+- Later migrate to PostgreSQL
+
+---
+
+## Tech Stack
 
 - React
 - TypeScript
@@ -29,13 +43,13 @@ The goal of this project is to create a clean and scalable dashboard UI for trac
 
 ## Why I'm building this
 
-I wanted a realistic product-style project where I can practice building a scalable frontend codebase and iterating from an MVP towards a more complete application.
+I wanted a more realistic, product-style project where I can practice building a maintainable frontend and gradually turn it into a fullstack application.
 
 ---
 
-## Running the Project Locally
+## ▶️ Run locally
 
 ```bash
 npm install
 npm run dev
-
+```

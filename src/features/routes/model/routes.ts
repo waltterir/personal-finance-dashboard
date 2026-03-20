@@ -1,5 +1,5 @@
-import type { Transaction } from "../../transactions/model/types";
-import type { Budget } from "../../budgets/model/types";
+import type { Transaction } from "../../transactions/model";
+import type { Budget } from "../../budgets/model";
 
 export type AppRoutesProps = {
   transactions: Transaction[];

@@ -1,4 +1,4 @@
-import type { Transaction } from "../../transactions/model/types";
+import type { Transaction } from "../../transactions/model";
 
 export function selectMonthlyTransactions(
   transactions: Transaction[],

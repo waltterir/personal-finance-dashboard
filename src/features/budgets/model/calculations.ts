@@ -1,7 +1,7 @@
-import type { Transaction } from "../../transactions/model/types";
+import type { Transaction } from "../../transactions/model";
 import type { BudgetsRow } from "./types";
 import type { Budget } from "./types";
-import type { Category } from "../../transactions/model/types";
+import type { Category } from "../../transactions/model";
 
 export function spentByCategory(
   transactions: Transaction[],

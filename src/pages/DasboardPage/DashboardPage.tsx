@@ -2,8 +2,8 @@ import {
   selectMonthlyTransactions,
   selectMonthlyTotalIncome,
   selectMonthlyTotalExpense,
-} from "../../features/dashboard/model/selectors";
-import type { DashboardPageProps } from "../../features/dashboard/model/types";
+} from "../../features/dashboard/model";
+import type { DashboardPageProps } from "../../features/dashboard/model";
 
 export function DashboardPage({ transactions }: DashboardPageProps) {
   const selectedMonth = new Date().toISOString().slice(0, 7);

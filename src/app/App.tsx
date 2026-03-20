@@ -1,10 +1,12 @@
+import { useState, useEffect } from "react";
 import { Header } from "../Layout/Header";
 import { AppRoutes } from "./Routes";
-import { transactions as seedTransactions } from "../data/seed";
+import {
+  transactions as seedTransactions,
+  budgets as seedBudgets,
+} from "../data/seed";
 import { createLocalTransactionsRepo } from "../features/transactions/storage/localRepo";
-import type { Transaction } from "../features/transactions/model/types";
-import { budgets as seedBudgets } from "../data/seed";
-import { useState, useEffect } from "react";
+import type { Transaction } from "../features/transactions/model";
 
 export function App() {
   const repo = createLocalTransactionsRepo();

@@ -1,7 +1,9 @@
-import { TransactionForm } from "../../features/transactions/components/TransactionForm";
-import { TransactionList } from "../../features/transactions/components/TransactionList";
-import { categories } from "../../data/seed/categories";
-import type { TransactionProps } from "../../features/transactions/model/types";
+import {
+  TransactionForm,
+  TransactionList,
+} from "../../features/transactions/components";
+import { categories } from "../../data/seed";
+import type { TransactionProps } from "../../features/transactions/model";
 
 export function TransactionPage({
   transactions,

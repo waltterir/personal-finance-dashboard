@@ -1,9 +1,6 @@
-import { categories } from "../../data/seed/categories";
-import {
-  buildBudgetRows,
-  spentByCategory,
-} from "../../features/budgets/model/calculations";
-import type { BudgetsPageProps } from "../../features/budgets/model/types";
+import { categories } from "../../data/seed";
+import { buildBudgetRows, spentByCategory } from "../../features/budgets/model";
+import type { BudgetsPageProps } from "../../features/budgets/model";
 
 export function BudgetsPage({ transactions, budgets }: BudgetsPageProps) {
   const month = new Date().toISOString().slice(0, 7);
