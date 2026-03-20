@@ -1,3 +1,4 @@
+import type { Transaction } from "../../transactions/model/types";
 export type Budget = {
   month: string;
   categoryId: string;
@@ -10,4 +11,8 @@ export type BudgetsRow = {
   limit: number;
   spent: number;
   percent: number;
+};
+
+export type BudgetsPageProps = {
+  transactions: Transaction[];
 };

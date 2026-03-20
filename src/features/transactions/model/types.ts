@@ -11,3 +11,9 @@ export type Category = {
   id: string;
   name: string;
 };
+
+export type TransactionProps = {
+  transactions: Transaction[];
+  onDeleteTransaction: (id: string) => void;
+  onAddTransaction: (transaction: Transaction) => void;
+};

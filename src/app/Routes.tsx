@@ -3,34 +3,34 @@ import { DashboardPage } from "../pages/DasboardPage/DashboardPage";
 import { ImportPage } from "../pages/ImportPage/ImportPage";
 import { TransactionPage } from "../pages/TransactionsPage/TransactionsPage";
 import { Route, Routes } from "react-router-dom";
-import type { Transaction } from "../features/transactions/model/types";
+import type { AppRoutesProps } from "../features/routes/model/routes";
 
-export function AppRoutes(props: {
-  transactions: Transaction[];
-  onDeleteTransaction: (id: string) => void;
-  onAddTransaction: (transaction: Transaction) => void;
-}) {
+export function AppRoutes({
+  transactions,
+  onDeleteTransaction,
+  onAddTransaction,
+}: AppRoutesProps) {
   return (
     <>
       <main>
         <Routes>
           <Route
             path="/dashboard"
-            element={<DashboardPage transactions={props.transactions} />}
+            element={<DashboardPage transactions={transactions} />}
           />
           <Route
             path="/transactions"
             element={
               <TransactionPage
-                transactions={props.transactions}
-                onDeleteTransaction={props.onDeleteTransaction}
-                onAddTransaction={props.onAddTransaction}
+                transactions={transactions}
+                onDeleteTransaction={onDeleteTransaction}
+                onAddTransaction={onAddTransaction}
               />
             }
           />
           <Route
             path="/budgets"
-            element={<BudgetsPage transactions={props.transactions} />}
+            element={<BudgetsPage transactions={transactions} />}
           />
           <Route path="/import" element={<ImportPage />} />
         </Routes>

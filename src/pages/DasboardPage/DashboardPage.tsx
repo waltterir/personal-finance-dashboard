@@ -3,11 +3,11 @@ import {
   selectMonthlyTotalIncome,
   selectMonthlyTotalExpense,
 } from "../../features/dashboard/model/selectors";
-import type { Transaction } from "../../features/transactions/model/types";
+import type { DashboardPageProps } from "../../features/dashboard/model/types";
 
-export function DashboardPage(props: { transactions: Transaction[] }) {
+export function DashboardPage({ transactions }: DashboardPageProps) {
   const selectedMonth = new Date().toISOString().slice(0, 7);
-  const monthly = selectMonthlyTransactions(props.transactions, selectedMonth);
+  const monthly = selectMonthlyTransactions(transactions, selectedMonth);
   const monthlyIncome = selectMonthlyTotalIncome(monthly);
   const monthlyExpense = selectMonthlyTotalExpense(monthly);
   const net = monthlyIncome - monthlyExpense;

@@ -1,26 +1,26 @@
 import { TransactionForm } from "../../features/transactions/components/TransactionForm";
 import { TransactionList } from "../../features/transactions/components/TransactionList";
 import { categories } from "../../data/seed/categories";
-import type { Transaction } from "../../features/transactions/model/types";
+import type { TransactionProps } from "../../features/transactions/model/types";
 
-export function TransactionPage(props: {
-  transactions: Transaction[];
-  onDeleteTransaction: (id: string) => void;
-  onAddTransaction: (transaction: Transaction) => void;
-}) {
+export function TransactionPage({
+  transactions,
+  onDeleteTransaction,
+  onAddTransaction,
+}: TransactionProps) {
   return (
     <>
       <div>
         <TransactionForm
           categories={categories}
-          onAddTransaction={props.onAddTransaction}
+          onAddTransaction={onAddTransaction}
         />
       </div>
       <div>
         <TransactionList
-          transactions={props.transactions}
+          transactions={transactions}
           categories={categories}
-          onDelete={props.onDeleteTransaction}
+          onDelete={onDeleteTransaction}
         />
       </div>
     </>

@@ -4,11 +4,11 @@ import {
   buildBudgetRows,
   spentByCategory,
 } from "../../features/budgets/model/calculations";
-import type { Transaction } from "../../features/transactions/model/types";
+import type { BudgetsPageProps } from "../../features/budgets/model/types";
 
-export function BudgetsPage(props: { transactions: Transaction[] }) {
+export function BudgetsPage({ transactions }: BudgetsPageProps) {
   const month = new Date().toISOString().slice(0, 7);
-  const spentTotals = spentByCategory(props.transactions, month);
+  const spentTotals = spentByCategory(transactions, month);
   const monthlyBudgets = budgets.filter((b) => b.month === month);
   const rows = buildBudgetRows(monthlyBudgets, categories, spentTotals);
 
