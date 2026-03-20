@@ -7,6 +7,7 @@ import type { AppRoutesProps } from "../features/routes/model/routes";
 
 export function AppRoutes({
   transactions,
+  budgets,
   onDeleteTransaction,
   onAddTransaction,
 }: AppRoutesProps) {
@@ -30,7 +31,9 @@ export function AppRoutes({
           />
           <Route
             path="/budgets"
-            element={<BudgetsPage transactions={transactions} />}
+            element={
+              <BudgetsPage budgets={budgets} transactions={transactions} />
+            }
           />
           <Route path="/import" element={<ImportPage />} />
         </Routes>

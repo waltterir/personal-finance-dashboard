@@ -15,4 +15,5 @@ export type BudgetsRow = {
 
 export type BudgetsPageProps = {
   transactions: Transaction[];
+  budgets: Budget[];
 };

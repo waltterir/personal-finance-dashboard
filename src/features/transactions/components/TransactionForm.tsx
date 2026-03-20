@@ -68,8 +68,12 @@ export function TransactionForm(props: {
             value={type}
             onChange={(e) => setType(e.target.value as "expense" | "income")}
           >
-            <option value="income">Income</option>
-            <option value="expense">Expense</option>
+            <option className="text-black" value="income">
+              Income
+            </option>
+            <option className="text-black" value="expense">
+              Expense
+            </option>
           </select>
         </div>
         <div>
@@ -88,7 +92,11 @@ export function TransactionForm(props: {
             onChange={(e) => setCategoryId(e.target.value)}
           >
             {props.categories.map((category) => (
-              <option key={category.id} value={category.id}>
+              <option
+                className="text-black"
+                key={category.id}
+                value={category.id}
+              >
                 {category.name}
               </option>
             ))}

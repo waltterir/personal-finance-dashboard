@@ -1,4 +1,3 @@
-import { budgets } from "../../data/seed/budgets";
 import { categories } from "../../data/seed/categories";
 import {
   buildBudgetRows,
@@ -6,11 +5,13 @@ import {
 } from "../../features/budgets/model/calculations";
 import type { BudgetsPageProps } from "../../features/budgets/model/types";
 
-export function BudgetsPage({ transactions }: BudgetsPageProps) {
+export function BudgetsPage({ transactions, budgets }: BudgetsPageProps) {
   const month = new Date().toISOString().slice(0, 7);
   const spentTotals = spentByCategory(transactions, month);
   const monthlyBudgets = budgets.filter((b) => b.month === month);
   const rows = buildBudgetRows(monthlyBudgets, categories, spentTotals);
+
+  console.log("BudgetsPage transactions", transactions);
 
   return (
     <>
