@@ -27,8 +27,8 @@ Work in progress – building the MVP and core features
 
 - Add transaction import functionality (upload and parse JSON/CSV files)
 - Improve state handling and validation
-- Build a backend with FastAPI + SQLite
-- Later migrate to PostgreSQL
+- Build a backend with FastAPI + PostgreSQL
+
 
 ---
 
