@@ -1,24 +1,28 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "../Layout/Header";
 import { AppRoutes } from "./Routes";
-import {
-  transactions as seedTransactions,
-  budgets as seedBudgets,
-} from "../data/seed";
-import { createLocalTransactionsRepo } from "../features/transactions/storage/localRepo";
+import { budgets as seedBudgets } from "../data/seed";
+import { createApiTransactionsRepo } from "../features/transactions/storage/transactionsApiRepo";
 import type { Transaction } from "../features/transactions/model";
 
+const repo = createApiTransactionsRepo();
+
 export function App() {
-  const repo = createLocalTransactionsRepo();
   const [budgets] = useState(() => seedBudgets);
-  const [transactions, setTransactions] = useState(() => {
-    const stored = repo.load();
-    if (stored === null) {
-      repo.save(seedTransactions);
-      return seedTransactions;
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+  useEffect(() => {
+    async function loadTransactions() {
+      try {
+        const data = await repo.load();
+        setTransactions(data ?? []);
+      } catch (err) {
+        console.error("Failed to load transactions", err);
+      }
     }
-    return stored;
-  });
+
+    loadTransactions();
+  }, []);
 
   const handleDeleteTransaction = (id: string) => {
     setTransactions((prev) => prev.filter((t) => t.id !== id));
@@ -28,13 +32,9 @@ export function App() {
     setTransactions((prev) => [...prev, transaction]);
   };
 
-  const handleImportTransactions = (newTransaction: Transaction[]) => {
-    setTransactions((prev) => [...prev, ...newTransaction]);
+  const handleImportTransactions = (newTransactions: Transaction[]) => {
+    setTransactions((prev) => [...prev, ...newTransactions]);
   };
-
-  useEffect(() => {
-    repo.save(transactions);
-  }, [transactions]);
 
   return (
     <>

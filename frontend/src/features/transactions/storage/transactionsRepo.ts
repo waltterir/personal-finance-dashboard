@@ -1,6 +1,6 @@
 import type { Transaction } from "../model/types";
 
 export interface TransactionsRepo {
-  load(): null | Transaction[];
-  save(items: Transaction[]): void;
+  load(): null | Promise<Transaction[]>;
+  save(items: Transaction[]): Promise<void>;
 }

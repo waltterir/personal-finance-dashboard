@@ -8,13 +8,16 @@ import {
 
 export function createLocalTransactionsRepo(): TransactionsRepo {
   const key = STORAGE_KEYS.transactions;
+
   return {
-    load(): null | Transaction[] {
+    async load(): Promise<Transaction[]> {
       const stored = localStorage.getItem(key);
-      if (!stored) return null;
+      if (!stored) return [];
+
       return safeJsonParse(stored, []);
     },
-    save(items: Transaction[]) {
+
+    async save(items: Transaction[]): Promise<void> {
       localStorage.setItem(key, safeJsonStringify(items));
     },
   };
