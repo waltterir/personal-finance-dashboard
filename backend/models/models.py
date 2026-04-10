@@ -1,7 +1,6 @@
 from decimal import Decimal
 from datetime import datetime, date
 from sqlmodel import SQLModel, Field
-from pydantic import BaseModel
 
 class TransactionBase(SQLModel):
     description: str
@@ -19,3 +18,4 @@ class TransactionCreate(TransactionBase):
 class TransactionRead(TransactionBase):
     id: int
     created_at: datetime
+
