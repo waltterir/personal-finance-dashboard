@@ -6,9 +6,10 @@ class TransactionBase(SQLModel):
     description: str
     amount: Decimal
     category: str
-    transaction_date: date
+    transactions_date: date
 
 class Transaction(TransactionBase, table=True):
+    __tablename__ = "transactions"
     id: int | None = Field(default=None, primary_key=True)
     created_at: datetime | None = None
 

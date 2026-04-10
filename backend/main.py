@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Depends
 from sqlmodel import select, Session
 from database.database import get_session
-from models import Transaction
-
+from models.models import Transaction
+from routes import transaction
 
 app = FastAPI()
 
@@ -10,7 +10,4 @@ app = FastAPI()
 def read_root():
     return {"message": "Backend toimii"}
 
-@app.get("/transactions")
-def get_transactions(session: Session = Depends(get_session)):
-    transactions = session.exec(select(Transaction)).all()
-    return transactions
+app.include_router(transaction.router)
